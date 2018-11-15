@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B92AE01C-CC7F-408F-9397-68ECD635D0DD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>JhWebBrowser</RootNamespace>
+    <AssemblyName>JhWebBrowser</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Cutie.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AlertModuel\MaskDelegate.cs" />
+    <Compile Include="AlertModuel\WinBaseforAlert.cs" />
+    <Compile Include="FluidWrapPanel\FluidLayoutManager.cs" />
+    <Compile Include="FluidWrapPanel\FluidMouseDragBehavior.cs" />
+    <Compile Include="FluidWrapPanel\FluidWrapPanel.cs" />
+    <Compile Include="FluidWrapPanel\ImageIcon.xaml.cs">
+      <DependentUpon>ImageIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FluidWrapPanel\ImageSee.xaml.cs">
+      <DependentUpon>ImageSee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Framework\Common.cs" />
+    <Compile Include="MenStyle\TransparentWebBrowser.cs" />
+    <Compile Include="MyApplication.xaml.cs">
+      <DependentUpon>MyApplication.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PublicpPoperty.cs" />
+    <Compile Include="Themes\HamburgerMenu.cs" />
+    <Compile Include="Themes\HamburgerMenuItem.cs" />
+    <Compile Include="UCMessageBox.xaml.cs">
+      <DependentUpon>UCMessageBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UCSelf.xaml.cs">
+      <DependentUpon>UCSelf.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WebBrowserOverlayWindow.xaml.cs">
+      <DependentUpon>WebBrowserOverlayWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Win10Menu.xaml.cs">
+      <DependentUpon>Win10Menu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowResizer\BorderPosition.cs" />
+    <Compile Include="WindowResizer\WindowBorder.cs" />
+    <Compile Include="WindowResizer\WindowResizer.cs" />
+    <Page Include="FluidWrapPanel\ImageIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FluidWrapPanel\ImageSee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="MyApplication.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\HamburgerMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\HamburgerMenuItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ListBoxStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\ToggleButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCMessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UCSelf.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WebBrowserOverlayWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Win10Menu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Mediaico48X48.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background\MainBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TitleImage\device-tv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background\user.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background\Two.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\favorite.png" />
+    <Resource Include="Assets\home.png" />
+    <Resource Include="Assets\list.png" />
+    <Resource Include="Assets\person.png" />
+    <Resource Include="Assets\search.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background\One.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background\Three.jpg" />
+    <Resource Include="Images\Background\Four.jpg" />
+    <Resource Include="Images\Background\Five.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Background\Six.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TitleImage\ChooseBackNew.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TitleImage\btnskin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\TitleImage\ChooseBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\UCMessageBoxico\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Cutie.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\1.jpg" />
+    <Resource Include="Images\Icons\2.jpg" />
+    <Resource Include="Images\Icons\3.jpg" />
+    <Resource Include="Images\Icons\4.jpg" />
+    <Resource Include="Images\Icons\5.jpg" />
+    <Resource Include="Images\Icons\6.jpg" />
+    <Resource Include="Images\Icons\7.jpg" />
+    <Resource Include="Images\Icons\8.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Icons\iconTitle.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

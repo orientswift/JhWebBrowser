@@ -1,0 +1,257 @@
+﻿<Window x:Class="JhWebBrowser.MyApplication"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:JhWebBrowser"
+        Title="嘘！！！我的小可爱" Height="768" Width="1366" MinHeight="768"
+        MinWidth="1240" WindowStartupLocation="CenterScreen"
+        Style="{StaticResource windowBaseStyle}" x:Name="this_"
+        AllowsTransparency="True" Closing="this__Closing">
+    <Window.TaskbarItemInfo>
+        <TaskbarItemInfo>
+            <TaskbarItemInfo.ThumbButtonInfos>
+                <ThumbButtonInfo ImageSource="{StaticResource Button1Image}"
+                             Description="上一首" />
+                <ThumbButtonInfo ImageSource="{StaticResource Button2Image}"
+                             Description="播放" />
+                <ThumbButtonInfo ImageSource="{StaticResource Button3Image}"
+                             Description="下一首" />
+            </TaskbarItemInfo.ThumbButtonInfos>
+        </TaskbarItemInfo>
+    </Window.TaskbarItemInfo>
+        <Grid x:Name="MainGrid">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Images/Background/One.jpg"/>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="4" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="4" />
+            </Grid.ColumnDefinitions>
+            <DockPanel Grid.RowSpan="3" Grid.ColumnSpan="3">
+                <ContentControl Name="content">
+                    <Grid Name="grid_Container">
+                        <Grid.Resources>
+                        <ContextMenu x:Key="menu" Style="{StaticResource MyContextMenuStyle}">
+                            <MenuItem Header="帮助" Style="{StaticResource MyMenuItemStyle}">
+                                <MenuItem.Icon>
+                                    <Path Data="M512 786.286v-109.714q0-8-5.143-13.143t-13.143-5.143h-109.714q-8 0-13.143 5.143t-5.143 13.143v109.714q0 8 5.143 13.143t13.143 5.143h109.714q8 0 13.143-5.143t5.143-13.143zM658.286 402.286q0-50.286-31.714-93.143t-79.143-66.286-97.143-23.429q-138.857 0-212 121.714-8.571 13.714 4.571 24l75.429 57.143q4 3.429 10.857 3.429 9.143 0 14.286-6.857 30.286-38.857 49.143-52.571 19.429-13.714 49.143-13.714 27.429 0 48.857 14.857t21.429 33.714q0 21.714-11.429 34.857t-38.857 25.714q-36 16-66 49.429t-30 71.714v20.571q0 8 5.143 13.143t13.143 5.143h109.714q8 0 13.143-5.143t5.143-13.143q0-10.857 12.286-28.286t31.143-28.286q18.286-10.286 28-16.286t26.286-20 25.429-27.429 16-34.571 7.143-46.286zM877.714 512q0 119.429-58.857 220.286t-159.714 159.714-220.286 58.857-220.286-58.857-159.714-159.714-58.857-220.286 58.857-220.286 159.714-159.714 220.286-58.857 220.286 58.857 159.714 159.714 58.857 220.286z"
+                                  Height="15" Stretch="Fill" Canvas.Top="-5" Canvas.Left="-6" Width="15" Fill="#40A4E7"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="在线升级" Style="{StaticResource MyMenuItemStyle}">
+                                <MenuItem.Icon>
+                                    <Path Data="M438.857 73.143q119.429 0 220.286 58.857t159.714 159.714 58.857 220.286-58.857 220.286-159.714 159.714-220.286 58.857-220.286-58.857-159.714-159.714-58.857-220.286 58.857-220.286 159.714-159.714 220.286-58.857zM595.429 370.857q-1.143 0.571-5.429 5.429t-7.714 5.429q1.143 0 2.571-2.857t2.857-6.286 2-4q3.429-4 12.571-8.571 8-3.429 29.714-6.857 19.429-4.571 29.143 6.286-1.143-1.143 5.429-7.429t8.286-6.857q1.714-1.143 8.571-2.571t8.571-4.286l1.143-12.571q-6.857 0.571-10-4t-3.714-12q0 1.143-3.429 4.571 0-4-2.571-4.571t-6.571 0.571-5.143 0.571q-5.714-1.714-8.571-4.286t-4.571-9.429-2.286-8.571q-1.143-2.857-5.429-6t-5.429-6q-0.571-1.143-1.429-3.143t-1.714-3.714-2.286-3.143-3.143-1.429-4 2.857-4.286 5.714-2.571 2.857q-1.714-1.143-3.429-0.857t-2.571 0.571-2.571 1.714-2.857 2q-1.714 1.143-4.857 1.714t-4.857 1.143q8.571-2.857-0.571-6.286-5.714-2.286-9.143-1.714 5.143-2.286 4.286-6.857t-4.857-8h2.857q-0.571-2.286-4.857-4.857t-10-4.857-7.429-3.429q-4.571-2.857-19.429-5.429t-18.857-0.286q-2.857 3.429-2.571 6t2.286 8 2 7.143q0.571 3.429-3.143 7.429t-3.714 6.857q0 4 8 8.857t5.714 12.286q-1.714 4.571-9.143 9.143t-9.143 6.857q-2.857 4.571-0.857 10.571t6 9.429q1.143 1.143 0.857 2.286t-2 2.571-3.143 2.286-3.714 2l-1.714 1.143q-6.286 2.857-11.714-3.429t-7.714-14.857q-4-14.286-9.143-17.143-13.143-4.571-16.571 0.571-2.857-7.429-23.429-14.857-14.286-5.143-33.143-2.286 3.429-0.571 0-8.571-4-8.571-10.857-6.857 1.714-3.429 2.286-10t0.571-7.714q1.714-7.429 6.857-13.143 0.571-0.571 4-4.857t5.429-7.714 0.286-3.429q20 2.286 28.571-6.286 2.857-2.857 6.571-9.714t6-9.714q5.143-3.429 8-3.143t8.286 3.143 8.286 2.857q8 0.571 8.857-6.286t-4.286-11.429q6.857 0.571 1.714-9.714-2.857-4-4.571-5.143-6.857-2.286-15.429 2.857-4.571 2.286 1.143 4.571-0.571-0.571-5.429 6t-9.429 10-9.143-2.857q-0.571-0.571-3.143-7.714t-5.429-7.714q-4.571 0-9.143 8.571 1.714-4.571-6.286-8.571t-13.714-4.571q10.857-6.857-4.571-15.429-4-2.286-11.714-2.857t-11.143 2.286q-2.857 4-3.143 6.571t2.857 4.571 6 3.143 6.571 2.286 4.857 1.714q8 5.714 4.571 8-1.143 0.571-4.857 2t-6.571 2.571-3.429 2.286q-1.714 2.286 0 8t-1.143 8q-2.857-2.857-5.143-10t-4-9.429q4 5.143-14.286 3.429l-5.714-0.571q-2.286 0-9.143 1.143t-11.714 0.571-7.714-4.571q-2.286-4.571 0-11.429 0.571-2.286 2.286-1.143-2.286-1.714-6.286-5.429t-5.714-4.857q-26.286 8.571-53.714 23.429 3.429 0.571 6.857-0.571 2.857-1.143 7.429-3.714t5.714-3.143q19.429-8 24-4l2.857-2.857q8 9.143 11.429 14.286-4-2.286-17.143-0.571-11.429 3.429-12.571 6.857 4 6.857 2.857 10.286-2.286-1.714-6.571-5.714t-8.286-6.286-8.571-2.857q-9.143 0-12.571 0.571-83.429 45.714-134.286 126.857 4 4 6.857 4.571 2.286 0.571 2.857 5.143t1.429 6.286 6.571-1.714q5.143 4.571 1.714 10.857 0.571-0.571 25.143 15.429 10.857 9.714 12 12 1.714 6.286-5.714 10.286-0.571-1.143-5.143-5.143t-5.143-2.286q-1.714 2.857 0.286 10.571t6 7.143q-4 0-5.429 9.143t-1.429 20.286-0.571 13.429l1.143 0.571q-1.714 6.857 3.143 19.714t12.286 11.143q-7.429 1.714 11.429 24.571 3.429 4.571 4.571 5.143 1.714 1.143 6.857 4.286t8.571 5.714 5.714 6q2.286 2.857 5.714 12.857t8 13.429q-1.143 3.429 5.429 11.429t6 13.143q-0.571 0-1.429 0.571t-1.429 0.571q1.714 4 8.857 8t8.857 7.429q0.571 1.714 1.143 5.714t1.714 6.286 4.571 1.143q1.143-11.429-13.714-35.429-8.571-14.286-9.714-16.571-1.714-2.857-3.143-8.857t-2.571-8.286q1.143 0 3.429 0.857t4.857 2 4.286 2.286 1.143 1.714q-1.714 4 1.143 10t6.857 10.571 9.714 10.857 6.857 7.429q3.429 3.429 8 11.143t0 7.714q5.143 0 11.429 5.714t9.714 11.429q2.857 4.571 4.571 14.857t2.857 13.714q1.143 4 4.857 7.714t7.143 5.429l9.143 4.571t7.429 4q2.857 1.143 10.571 6t12.286 6.571q5.714 2.286 9.143 2.286t8.286-1.429 7.714-2q8.571-1.143 16.571 8.571t12 12q20.571 10.857 31.429 6.286-1.143 0.571 0.286 4.286t4.571 8.857 5.143 8.286 3.143 4.857q2.857 3.429 10.286 8.571t10.286 8.571q3.429-2.286 4-5.143-1.714 4.571 4 11.429t10.286 5.714q8-1.714 8-18.286-17.714 8.571-28-10.286 0-0.571-1.429-3.143t-2.286-4.857-1.429-4.857 0-4.286 2.857-1.714q5.143 0 5.714-2t-1.143-7.143-2.286-7.429q-0.571-4.571-6.286-11.429t-6.857-8.571q-2.857 5.143-9.143 4.571t-9.143-5.143q0 0.571-0.857 3.143t-0.857 3.714q-7.429 0-8.571-0.571 0.571-1.714 1.429-10t2-12.857q0.571-2.286 3.143-6.857t4.286-8.286 2.286-7.143-2.571-5.429-10-1.429q-10.857 0.571-14.857 11.429-0.571 1.714-1.714 6t-2.857 6.571-5.143 4q-4 1.714-13.714 1.143t-13.714-2.857q-7.429-4.571-12.857-16.571t-5.429-21.143q0-5.714 1.429-15.143t1.714-14.286-3.143-14q1.714-1.143 5.143-5.429t5.714-6q1.143-0.571 2.571-0.857t2.571 0 2.286-0.857 1.714-3.429q-0.571-0.571-2.286-1.714-1.714-1.714-2.286-1.714 4 1.714 16.286-0.857t15.714 0.857q8.571 6.286 12.571-1.143 0-0.571-1.429-5.429t-0.286-7.714q2.857 15.429 16.571 5.143 1.714 1.714 8.857 2.857t10 2.857q1.714 1.143 4 3.143t3.143 2.571 2.857-0.286 4.857-3.714q5.714 8 6.857 13.714 6.286 22.857 10.857 25.143 4 1.714 6.286 1.143t2.571-5.429 0-8-0.857-7.143l-0.571-4.571v-10.286l-0.571-4.571q-8.571-1.714-10.571-6.857t0.857-10.571 8.571-10.571q0.571-0.571 4.571-2t8.857-3.714 7.143-4.571q12-10.857 8.571-20 4 0 6.286-5.143-0.571 0-2.857-1.714t-4.286-2.857-2.571-1.143q5.143-2.857 1.143-9.143 2.857-1.714 4.286-6.286t4.286-5.714q5.143 6.857 12 1.143 4-4.571 0.571-9.143 2.857-4 11.714-6t10.571-5.429q4 1.143 4.571-1.143t0.571-6.857 1.714-6.857q2.286-2.857 8.571-5.143t7.429-2.857l9.714-6.286q1.714-2.286 0-2.286 10.286 1.143 17.714-6.286 5.714-6.286-3.429-11.429 1.714-3.429-1.714-5.429t-8.571-3.143q1.714-0.571 6.571-0.286t6-0.857q8.571-5.714-4-9.143-9.714-2.857-24.571 6.857zM502.286 872q117.714-20.571 200.571-108-1.714-1.714-7.143-2.571t-7.143-2q-10.286-4-13.714-4.571 0.571-4-1.429-7.429t-4.571-5.143-7.143-4.571-6.286-4q-1.143-1.143-4-3.429t-4-3.143-4.286-2.571-4.857-1.143-5.714 0.571l-1.714 0.571q-1.714 0.571-3.143 1.429t-3.143 1.714-2.286 1.714 0 1.429q-12-9.714-20.571-12.571-2.857-0.571-6.286-3.143t-6-4-5.714-0.857-6.571 4q-2.857 2.857-3.429 8.571t-1.143 7.429q-4-2.857 0-10t1.143-10.571q-1.714-3.429-6-2.571t-6.857 2.571-6.571 4.857-5.143 3.714-4.857 3.143-4.857 4.286q-1.714 2.286-3.429 6.857t-2.857 6.286q-1.143-2.286-6.571-3.714t-5.429-3.143q1.143 5.714 2.286 20t2.857 21.714q4 17.714-6.857 27.429-15.429 14.286-16.571 22.857-2.286 12.571 6.857 14.857 0 4-4.571 11.714t-4 12.286q0 3.429 1.143 9.143z"
+                                  Height="15" Stretch="Fill" Canvas.Top="-5" Canvas.Left="-6" Width="15" Fill="#83C92F"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="反馈问题" Style="{StaticResource MyMenuItemStyle}">
+                                <MenuItem.Icon>
+                                    <Path Data="M585.143 786.286v-91.429q0-8-5.143-13.143t-13.143-5.143h-54.857v-292.571q0-8-5.143-13.143t-13.143-5.143h-182.857q-8 0-13.143 5.143t-5.143 13.143v91.429q0 8 5.143 13.143t13.143 5.143h54.857v182.857h-54.857q-8 0-13.143 5.143t-5.143 13.143v91.429q0 8 5.143 13.143t13.143 5.143h256q8 0 13.143-5.143t5.143-13.143zM512 274.286v-91.429q0-8-5.143-13.143t-13.143-5.143h-109.714q-8 0-13.143 5.143t-5.143 13.143v91.429q0 8 5.143 13.143t13.143 5.143h109.714q8 0 13.143-5.143t5.143-13.143zM877.714 512q0 119.429-58.857 220.286t-159.714 159.714-220.286 58.857-220.286-58.857-159.714-159.714-58.857-220.286 58.857-220.286 159.714-159.714 220.286-58.857 220.286 58.857 159.714 159.714 58.857 220.286z"
+                                  Height="15" Stretch="Fill" Canvas.Top="-5" Canvas.Left="-6" Width="15" Fill="#40A4E7"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <Separator  Style="{StaticResource MySeparatorStyle}"/>
+                            <MenuItem Header="我喜欢的" Style="{StaticResource MyMenuItemStyle}">
+                                <MenuItem.Icon>
+                                    <Path Data="M512 950.857q-14.857 0-25.143-10.286l-356.571-344q-5.714-4.571-15.714-14.857t-31.714-37.429-38.857-55.714-30.571-69.143-13.429-78.857q0-125.714 72.571-196.571t200.571-70.857q35.429 0 72.286 12.286t68.571 33.143 54.571 39.143 43.429 38.857q20.571-20.571 43.429-38.857t54.571-39.143 68.571-33.143 72.286-12.286q128 0 200.571 70.857t72.571 196.571q0 126.286-130.857 257.143l-356 342.857q-10.286 10.286-25.143 10.286z"
+                                  Height="15" Stretch="Fill" Canvas.Top="-5" Canvas.Left="-6" Width="15" Fill="#F06E6E"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="下载列表">
+                                <MenuItem.Icon>
+                                    <Path Data="M733.714 512.571q0-15.429-10.286-25.714l-52-52q-10.286-10.286-25.714-10.286t-25.714 10.286l-108 108v-286.857q0-14.857-10.857-25.714t-25.714-10.857h-73.143q-14.857 0-25.714 10.857t-10.857 25.714v286.857l-108-108q-10.857-10.857-25.714-10.857t-25.714 10.857l-52 52q-10.286 10.286-10.286 25.714t10.286 25.714l258.857 258.857q10.286 10.286 25.714 10.286t25.714-10.286l258.857-258.857q10.286-10.286 10.286-25.714zM877.714 512q0 119.429-58.857 220.286t-159.714 159.714-220.286 58.857-220.286-58.857-159.714-159.714-58.857-220.286 58.857-220.286 159.714-159.714 220.286-58.857 220.286 58.857 159.714 159.714 58.857 220.286z"
+                                  Height="15" Stretch="Fill" Canvas.Top="-5" Canvas.Left="-6" Width="15" Fill="#40A4E7"/>
+                                </MenuItem.Icon>
+                                <MenuItem Header="历史列表" Style="{StaticResource MyMenuItemStyle}">
+                                    <MenuItem.Icon>
+                                        <Path Data="M877.714 512q0 89.143-34.857 170.286t-93.714 140-140 93.714-170.286 34.857q-98.286 0-186.857-41.429t-150.857-116.857q-4-5.714-3.714-12.857t4.857-11.714l78.286-78.857q5.714-5.143 14.286-5.143 9.143 1.143 13.143 6.857 41.714 54.286 102.286 84t128.571 29.714q59.429 0 113.429-23.143t93.429-62.571 62.571-93.429 23.143-113.429-23.143-113.429-62.571-93.429-93.429-62.571-113.429-23.143q-56 0-107.429 20.286t-91.429 58l78.286 78.857q17.714 17.143 8 39.429-9.714 22.857-33.714 22.857h-256q-14.857 0-25.714-10.857t-10.857-25.714v-256q0-24 22.857-33.714 22.286-9.714 39.429 8l74.286 73.714q61.143-57.714 139.714-89.429t162.571-31.714q89.143 0 170.286 34.857t140 93.714 93.714 140 34.857 170.286zM512 347.429v256q0 8-5.143 13.143t-13.143 5.143h-182.857q-8 0-13.143-5.143t-5.143-13.143v-36.571q0-8 5.143-13.143t13.143-5.143h128v-201.143q0-8 5.143-13.143t13.143-5.143h36.571q8 0 13.143 5.143t5.143 13.143z"
+                                  Height="15" Stretch="Fill" Canvas.Top="-5" Canvas.Left="-6" Width="15" Fill="#DC483C"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                                <MenuItem Header="正在下载" Style="{StaticResource MyMenuItemStyle}">
+                                    <MenuItem.Icon>
+                                        <Path Data="M585.143 804.571h365.714v-73.143h-365.714v73.143zM365.714 512h585.143v-73.143h-585.143v73.143zM731.429 219.429h219.429v-73.143h-219.429v73.143zM1024 694.857v146.286q0 14.857-10.857 25.714t-25.714 10.857h-950.857q-14.857 0-25.714-10.857t-10.857-25.714v-146.286q0-14.857 10.857-25.714t25.714-10.857h950.857q14.857 0 25.714 10.857t10.857 25.714zM1024 402.286v146.286q0 14.857-10.857 25.714t-25.714 10.857h-950.857q-14.857 0-25.714-10.857t-10.857-25.714v-146.286q0-14.857 10.857-25.714t25.714-10.857h950.857q14.857 0 25.714 10.857t10.857 25.714zM1024 109.714v146.286q0 14.857-10.857 25.714t-25.714 10.857h-950.857q-14.857 0-25.714-10.857t-10.857-25.714v-146.286q0-14.857 10.857-25.714t25.714-10.857h950.857q14.857 0 25.714 10.857t10.857 25.714z"
+                                  Height="15" Stretch="Fill" Canvas.Top="-5" Canvas.Left="-6" Width="15" Fill="#18A15F"/>
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </MenuItem>
+                            <MenuItem Header="消息管理" Style="{StaticResource MyMenuItemStyle}">
+                                <MenuItem.Icon>
+                                    <Path Data="M365.714 512q0 30.286-21.429 51.714t-51.714 21.429-51.714-21.429-21.429-51.714 21.429-51.714 51.714-21.429 51.714 21.429 21.429 51.714zM585.143 512q0 30.286-21.429 51.714t-51.714 21.429-51.714-21.429-21.429-51.714 21.429-51.714 51.714-21.429 51.714 21.429 21.429 51.714zM804.571 512q0 30.286-21.429 51.714t-51.714 21.429-51.714-21.429-21.429-51.714 21.429-51.714 51.714-21.429 51.714 21.429 21.429 51.714zM512 219.429q-116.571 0-218 39.714t-161.143 107.143-59.714 145.714q0 64 40.857 122t115.143 100.286l49.714 28.571-15.429 54.857q-13.714 52-40 98.286 86.857-36 157.143-97.714l24.571-21.714 32.571 3.429q39.429 4.571 74.286 4.571 116.571 0 218-39.714t161.143-107.143 59.714-145.714-59.714-145.714-161.143-107.143-218-39.714zM1024 512q0 99.429-68.571 183.714t-186.286 133.143-257.143 48.857q-40 0-82.857-4.571-113.143 100-262.857 138.286-28 8-65.143 12.571h-2.857q-8.571 0-15.429-6t-9.143-15.714v-0.571q-1.714-2.286-0.286-6.857t1.143-5.714 2.571-5.429l3.429-5.143t4-4.857 4.571-5.143q4-4.571 17.714-19.714t19.714-21.714 17.714-22.571 18.571-29.143 15.429-33.714 14.857-43.429q-89.714-50.857-141.429-125.714t-51.714-160.571q0-74.286 40.571-142t109.143-116.857 163.429-78 198.857-28.857 198.857 28.857 163.429 78 109.143 116.857 40.571 142z"
+                                  Height="15" Stretch="Fill" Canvas.Top="-5" Canvas.Left="-6" Width="15" Fill="#40A4E7"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <Separator  Style="{StaticResource MySeparatorStyle}"/>
+                            <MenuItem Header="关于我们" Style="{StaticResource MyMenuItemStyle}">
+                                <MenuItem.Icon>
+                                    <Path Data="M225.143 772.571q-4.571 5.143-11.429-1.714-7.429-6.286-2.286-10.857 4.571-5.143 11.429 1.714 6.857 6.286 2.286 10.857zM201.143 737.714q5.143 6.857 0 10.857-4.571 3.429-9.714-4t0-10.286q5.143-4 9.714 3.429zM166.286 703.429q-2.857 4-7.429 1.143-5.714-2.857-4-6.857 1.714-2.857 7.429-1.143 5.714 2.857 4 6.857zM184 722.857q-3.429 4-9.143-1.714-5.143-6.286-1.143-9.143 3.429-3.429 9.143 1.714 5.143 6.286 1.143 9.143zM257.714 786.857q-2.286 6.857-10.857 3.429-9.714-2.286-7.429-8.571t10.857-4q9.143 2.857 7.429 9.143zM293.714 789.714q0 6.286-9.143 6.286-9.714 1.143-9.714-6.286 0-6.286 9.143-6.286 9.714-1.143 9.714 6.286zM326.857 784q1.143 5.714-8 8t-10.286-4.571 8-8.571q9.143-1.143 10.286 5.143zM877.714 237.714v548.571q0 68-48.286 116.286t-116.286 48.286h-128q-9.143 0-14-0.571t-11.143-2.857-9.143-8.286-2.857-15.714v-136.571q0-55.429-29.714-81.143 32.571-3.429 58.571-10.286t53.714-22.286 46.286-38 30.286-60 11.714-86q0-69.143-45.143-117.714 21.143-52-4.571-116.571-16-5.143-46.286 6.286t-52.571 25.143l-21.714 13.714q-53.143-14.857-109.714-14.857t-109.714 14.857q-9.143-6.286-24.286-15.429t-47.714-22-49.143-7.714q-25.143 64.571-4 116.571-45.143 48.571-45.143 117.714 0 48.571 11.714 85.714t30 60 46 38.286 53.714 22.286 58.571 10.286q-22.857 20.571-28 58.857-12 5.714-25.714 8.571t-32.571 2.857-37.429-12.286-31.714-35.714q-10.857-18.286-27.714-29.714t-28.286-13.714l-11.429-1.714q-12 0-16.571 2.571t-2.857 6.571 5.143 8 7.429 6.857l4 2.857q12.571 5.714 24.857 21.714t18 29.143l5.714 13.143q7.429 21.714 25.143 35.143t38.286 17.143 39.714 4 31.714-2l13.143-2.286q0 21.714 0.286 58.857t0.286 38.857q0 12.571-6.286 19.143t-12.571 7.429-18.857 0.857h-128q-68 0-116.286-48.286t-48.286-116.286v-548.571q0-68 48.286-116.286t116.286-48.286h548.571q68 0 116.286 48.286t48.286 116.286z"
+                                  Height="15" Stretch="Fill" Canvas.Top="-5" Canvas.Left="-6" Width="15" Fill="#F4B494"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="设置" Style="{StaticResource MyMenuItemStyle}">
+                                <MenuItem.Icon>
+                                    <Path Data="M585.143 512q0-60.571-42.857-103.429t-103.429-42.857-103.429 42.857-42.857 103.429 42.857 103.429 103.429 42.857 103.429-42.857 42.857-103.429zM877.714 449.714v126.857q0 6.857-4.571 13.143t-11.429 7.429l-105.714 16q-10.857 30.857-22.286 52 20 28.571 61.143 78.857 5.714 6.857 5.714 14.286t-5.143 13.143q-15.429 21.143-56.571 61.714t-53.714 40.571q-6.857 0-14.857-5.143l-78.857-61.714q-25.143 13.143-52 21.714-9.143 77.714-16.571 106.286-4 16-20.571 16h-126.857q-8 0-14-4.857t-6.571-12.286l-16-105.143q-28-9.143-51.429-21.143l-80.571 61.143q-5.714 5.143-14.286 5.143-8 0-14.286-6.286-72-65.143-94.286-96-4-5.714-4-13.143 0-6.857 4.571-13.143 8.571-12 29.143-38t30.857-40.286q-15.429-28.571-23.429-56.571l-104.571-15.429q-7.429-1.143-12-7.143t-4.571-13.429v-126.857q0-6.857 4.571-13.143t10.857-7.429l106.286-16q8-26.286 22.286-52.571-22.857-32.571-61.143-78.857-5.714-6.857-5.714-13.714 0-5.714 5.143-13.143 14.857-20.571 56.286-61.429t54-40.857q7.429 0 14.857 5.714l78.857 61.143q25.143-13.143 52-21.714 9.143-77.714 16.571-106.286 4-16 20.571-16h126.857q8 0 14 4.857t6.571 12.286l16 105.143q28 9.143 51.429 21.143l81.143-61.143q5.143-5.143 13.714-5.143 7.429 0 14.286 5.714 73.714 68 94.286 97.143 4 4.571 4 12.571 0 6.857-4.571 13.143-8.571 12-29.143 38t-30.857 40.286q14.857 28.571 23.429 56l104.571 16q7.429 1.143 12 7.143t4.571 13.429z"
+                                  Height="15" Stretch="Fill" Canvas.Top="-5" Canvas.Left="-5" Width="15" Fill="#40A4E7"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem x:Name="Exit" Header="退出程序" Style="{StaticResource MyMenuItemStyle}" Click="Exit_Click">
+                                <MenuItem.Icon>
+                                    <Path Data="M676.571 512q0 14.857-10.857 25.714l-310.857 310.857q-10.857 10.857-25.714 10.857t-25.714-10.857-10.857-25.714v-164.571h-256q-14.857 0-25.714-10.857t-10.857-25.714v-219.429q0-14.857 10.857-25.714t25.714-10.857h256v-164.571q0-14.857 10.857-25.714t25.714-10.857 25.714 10.857l310.857 310.857q10.857 10.857 10.857 25.714zM877.714 310.857v402.286q0 68-48.286 116.286t-116.286 48.286h-182.857q-7.429 0-12.857-5.429t-5.429-12.857q0-2.286-0.571-11.429t-0.286-15.143 1.714-13.429 5.714-11.143 11.714-3.714h182.857q37.714 0 64.571-26.857t26.857-64.571v-402.286q0-37.714-26.857-64.571t-64.571-26.857h-178.286t-6.571-0.571-6.571-1.714-4.571-3.143-4-5.143-1.143-7.714q0-2.286-0.571-11.429t-0.286-15.143 1.714-13.429 5.714-11.143 11.714-3.714h182.857q68 0 116.286 48.286t48.286 116.286z"
+                                  Height="15" Stretch="Fill" Canvas.Top="-5" Canvas.Left="-6" Width="15" Fill="#F35322"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                        </ContextMenu>
+                        </Grid.Resources>
+                        <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0"/>
+                    </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="0"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle x:Name="rectangleSkinTwo" Grid.ColumnSpan="3" Opacity="0.7" Fill="Black"/>
+                    <Rectangle x:Name="rectangleSkinRight" Grid.Column="2" Grid.Row="1" Opacity="0.7" Fill="Black"/>
+                    <Rectangle x:Name="rectangleSkinBottom" Grid.Row="3" Grid.ColumnSpan="3" Opacity="0.7" Fill="Black"/>
+                    <Grid Grid.ColumnSpan="3" Margin="10 0 0 0" MouseDown="Grid_MouseDown">
+                            <TextBlock/>
+                            <!--关闭按钮-->
+                            <Button x:Name="btnClose" Template="{StaticResource CloseWin10Button}" 
+                                HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="30" ToolTip="关闭程序"
+                                Click="btnClose_Click"/>
+                            <!--最大化按钮-->
+                            <Button x:Name="btnMax" Template="{StaticResource ＭaxWin10ButtonTemplate}" 
+                                HorizontalAlignment="Right" Width="40" Height="30" VerticalAlignment="Top"
+                                Margin="0,0,40,0" ToolTip="最大化"
+                                Click="max_Click"/>
+                            <!--还原按钮-->
+                            <Button x:Name="btnMid" Template="{StaticResource ＭidWin10ButtonTemplate}" 
+                                HorizontalAlignment="Right" Width="40" Height="30" VerticalAlignment="Top"
+                                Margin="0,0,40,0"  Visibility="Hidden" ToolTip="还 原"
+                                Click="mid_Click"/>
+                            <!--最小化按钮-->
+                            <Button x:Name="btnMin" Template="{StaticResource ＭinWin10ButtonTemplate}" 
+                                HorizontalAlignment="Right" Width="40" Height="30" VerticalAlignment="Top"
+                                Margin="0,0,80,0" ToolTip="最小化"
+                                Click="btnMin_Click"/>
+                            <!--换肤方法1-->
+                            <Menu  HorizontalAlignment="Right" Margin="0,0,120,0"  ToolTip="更换外观">
+                                <MenuItem Style="{StaticResource menuItemSkin}">
+                                    <MenuItem Style="{StaticResource menuItemTwo}">
+                                        <MenuItem.Header>
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition />
+                                                    <RowDefinition />
+                                                </Grid.RowDefinitions>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
+                                                    <ColumnDefinition />
+                                                </Grid.ColumnDefinitions>
+                                                <Button  Style="{StaticResource BtnPic}" Click="btnAllSkin_Click" x:Name="One">
+                                                    <Button.Content>
+                                                        <Grid>
+                                                            <Image Source="/Images/Background/One.jpg" Stretch="Fill"/>
+                                                            <Rectangle Fill="Black" Opacity="0.3" VerticalAlignment="Bottom" Height="26"/>
+                                                            <Label Content="天空蓝" Foreground="White"
+                                                       HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                                                        </Grid>
+                                                    </Button.Content>
+                                                </Button>
+                                                <Button Style="{StaticResource BtnPic}" Grid.Column="1" Click="btnAllSkin_Click" x:Name="Two">
+                                                    <Button.Content>
+                                                        <Grid>
+                                                            <Image Source="/Images/Background/Two.jpg" Stretch="Fill"/>
+                                                            <Rectangle Fill="Black" Opacity="0.3" VerticalAlignment="Bottom" Height="26"/>
+                                                            <Label Content="雪山蓝" Foreground="White"
+                                                       HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                                                        </Grid>
+                                                    </Button.Content>
+                                                </Button>
+                                                <Button Style="{StaticResource BtnPic}" Grid.Column="2" Click="btnAllSkin_Click" x:Name="Three">
+                                                    <Button.Content>
+                                                        <Grid>
+                                                            <Image Source="/Images/Background/Three.jpg" Stretch="Fill"/>
+                                                            <Rectangle Fill="Black" Opacity="0.3" VerticalAlignment="Bottom" Height="26"/>
+                                                            <Label Content="夕阳美" Foreground="White"
+                                                       HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                                                        </Grid>
+                                                    </Button.Content>
+                                                </Button>
+                                                <Button Style="{StaticResource BtnPic}" Grid.Row="1" Click="btnAllSkin_Click" x:Name="Four" Margin="0,2,0,0">
+                                                    <Button.Content>
+                                                        <Grid>
+                                                            <Image Source="/Images/Background/Four.jpg" Stretch="Fill"/>
+                                                            <Rectangle Fill="Black" Opacity="0.3" VerticalAlignment="Bottom" Height="26"/>
+                                                            <Label Content="美景一" Foreground="White"
+                                                       HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                                                        </Grid>
+                                                    </Button.Content>
+                                                </Button>
+                                                <Button Style="{StaticResource BtnPic}" Grid.Row="1" Grid.Column="1" Click="btnAllSkin_Click" x:Name="Five" Margin="0,2,0,0">
+                                                    <Button.Content>
+                                                        <Grid>
+                                                            <Image Source="/Images/Background/Five.jpg" Stretch="Fill"/>
+                                                            <Rectangle Fill="Black" Opacity="0.3" VerticalAlignment="Bottom" Height="26"/>
+                                                            <Label Content="美景二" Foreground="White"
+                                                       HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                                                        </Grid>
+                                                    </Button.Content>
+                                                </Button>
+                                                <Button Style="{StaticResource BtnPic}" Grid.Row="1" Grid.Column="2" Click="btnAllSkin_Click" x:Name="Six" Margin="0,2,0,0">
+                                                    <Button.Content>
+                                                        <Grid>
+                                                            <Image Source="/Images/Background/Six.jpg" Stretch="Fill"/>
+                                                            <Rectangle Fill="Black" Opacity="0.3" VerticalAlignment="Bottom" Height="26"/>
+                                                            <Label Content="美景三" Foreground="White"
+                                                       HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+                                                        </Grid>
+                                                    </Button.Content>
+                                                </Button>
+                                            </Grid>
+                                        </MenuItem.Header>
+                                    </MenuItem>
+                                </MenuItem>
+                            </Menu>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <Rectangle x:Name="rectangleSkin" Fill="Black" Opacity="0.7"/>
+                            <local:HamburgerMenu Background="Transparent" 
+                             MenuIconColor="White" SelectionIndicatorColor="White" 
+                             MenuItemForeground="White" HorizontalAlignment="Left">
+                                <local:HamburgerMenu.Content>
+                                    <!--<HamburgerMenu:HamburgerMenuItem Icon="Assets/home.png" Text="主页" SelectionCommand="{Binding ElementName=this_}"/>-->
+                                    <local:HamburgerMenuItem Icon="Assets/home.png" Text="主页" Selected="main_Selected"/>
+                                    <local:HamburgerMenuItem Icon="Assets/search.png" Text="搜索" Selected="search_Selected"/>
+                                    <local:HamburgerMenuItem Icon="Assets/favorite.png" Text="收藏" Selected="cnblogs_Selected"/>
+                                    <local:HamburgerMenuItem Icon="Assets/list.png" Text="列表" Selected="list_Selected"/>
+                                    <local:HamburgerMenuItem Icon="Assets/person.png" Text="自己" x:Name="myself" Selected="myself_Selected"/>
+                                </local:HamburgerMenu.Content>
+                            </local:HamburgerMenu>
+                        </Grid>
+                        <Grid x:Name="gridMenu" Grid.Row="1" Grid.Column="1">
+                            <local:TransparentWebBrowser  x:Name="wbInput" 
+             TargetElement="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}}" />
+                        </Grid>
+                    <Grid x:Name="gridMain" Grid.Row="1" Grid.Column="1"></Grid>
+                    </Grid>
+                </ContentControl>
+            </DockPanel>
+            <Rectangle Name="topLeft" Fill="Transparent" />
+            <Rectangle Name="top" Fill="Transparent" Grid.Column="1" />
+            <Rectangle Name="topRight" Fill="Transparent" Grid.Column="2" />
+            <Rectangle Name="right" Fill="Transparent" Grid.Row="1" Grid.Column="2" />
+            <Rectangle Name="bottomRight" Fill="Transparent" Grid.Row="2" Grid.Column="2" />
+            <Rectangle Name="bottom" Fill="Transparent" Grid.Row="2" Grid.Column="1" />
+            <Rectangle Name="bottomLeft" Fill="Transparent" Grid.Row="2" />
+            <Rectangle Name="left" Fill="Transparent" Grid.Row="1" />
+        </Grid>
+</Window>

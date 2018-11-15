@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JhWebBrowser", "JhWebBrowser\JhWebBrowser.csproj", "{B92AE01C-CC7F-408F-9397-68ECD635D0DD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B92AE01C-CC7F-408F-9397-68ECD635D0DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B92AE01C-CC7F-408F-9397-68ECD635D0DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B92AE01C-CC7F-408F-9397-68ECD635D0DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B92AE01C-CC7F-408F-9397-68ECD635D0DD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E545F34-77C8-4484-91A5-B0A16B725DF9}
+	EndGlobalSection
+EndGlobal

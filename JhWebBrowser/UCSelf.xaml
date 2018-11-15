@@ -1,0 +1,51 @@
+﻿<local:WinBaseforAlert x:Class="JhWebBrowser.UCSelf"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:JhWebBrowser"
+             mc:Ignorable="d" 
+             Height="360" Width="400" Title="个人信息">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="173*"/>
+            <RowDefinition Height="227*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="40"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="个人信息"/>
+                <Button x:Name="btnClose" Grid.Column="1" Height="30" Style="{StaticResource CloseBtn}" Click="btnClose_Click"/>
+            </Grid>
+            <Border Width="100" Height="100" Margin="0,10">
+                <Border.Background>
+                    <ImageBrush x:Name="UserImage" ImageSource="Images/Background/user.JPG"/>
+                </Border.Background>
+            </Border>
+        </StackPanel>
+        <Grid Grid.Row="1" Margin="20"  HorizontalAlignment="Center">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="昵称：" Margin="10,10"/>
+                <TextBlock Text="闫驚鏵or陈媛" Margin="0,10,20,0"/>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
+                <TextBlock Text="性别：" Margin="10,10"/>
+                <TextBlock Text="男" Margin="0,10,2,10"/>
+                <CheckBox x:Name="btnMan" Style="{StaticResource CheckBoxStyle}" 
+                          IsChecked="True" Margin="0,0" Click="btnMan_Click"/>
+                <TextBlock Text="女" Margin="10,10,2,10"/>
+                <CheckBox x:Name="btnwoman" Style="{StaticResource CheckBoxStyle}"
+                          Margin="0,0,20,0" Click="btnwoman_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</local:WinBaseforAlert>

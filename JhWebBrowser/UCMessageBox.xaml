@@ -1,0 +1,57 @@
+﻿<Window x:Class="JhWebBrowser.UCMessageBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="UCMessageBox" Height="200" Width="360" WindowStyle="None"  
+        Background="{x:Null}"  ResizeMode="NoResize"  x:Name="main"
+	   AllowsTransparency="True" WindowStartupLocation="CenterScreen"
+       FontSize="14">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="Window.Loaded" >
+            <BeginStoryboard>
+                <Storyboard Name="sbOpShow">
+                    <DoubleAnimation
+                    Storyboard.TargetName="main" 
+                    Storyboard.TargetProperty="Opacity" 
+                    From="0" To="1" Duration="0:0:0.15"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Border x:Name="borderMain" Background="White" Opacity="1" CornerRadius="4" Margin="5"
+            Height="180" Width="340">
+        <Border.Effect>
+            <DropShadowEffect ShadowDepth="0" BlurRadius="10" Opacity="0.8" Color="#80000000"/>
+        </Border.Effect>
+        <Canvas>
+            <Border Canvas.Top="0" Height="38" Width="{Binding ElementName=borderMain, Path=Width,UpdateSourceTrigger=PropertyChanged}" 
+                    BorderThickness="0,0,0,1" BorderBrush="#FFEFE2E2" Background="#2D2D2D" MouseDown="Border_MouseDown"
+                    CornerRadius="4,4,0,0" Cursor="SizeAll">
+                <TextBlock x:Name="lblTitle" Text="标题" HorizontalAlignment="Left" 
+                           Foreground="White" 
+                           VerticalAlignment="Center" Margin="16,5"/>
+            </Border>
+            <TextBlock x:Name="lblMsg"
+                       Foreground="Black" 
+                       TextWrapping="Wrap" Text="test"
+                       HorizontalAlignment="Center" Canvas.Left="60"
+                       Canvas.Top="70" 
+                       />
+            <!--<Border BorderBrush="#4DA1E0" BorderThickness="1" Height="30" 
+                    Canvas.Bottom="10" Canvas.Right="125" MouseLeftButtonDown="Yes_MouseLeftButtonDown"
+                 Name="border1" Width="80" Background="#3B8AD4" CornerRadius="2">
+                <TextBlock x:Name="tbYes" Text="确  定"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+            </Border>
+            <Border BorderBrush="#C4C4C4" BorderThickness="1" Height="30" 
+                    Canvas.Bottom="10" Canvas.Right="30" MouseLeftButtonDown="No_MouseLeftButtonDown"
+                Name="border2" Width="80" CornerRadius="2" Background="#F9F9F9">
+                <TextBlock x:Name="tbNo" Text="取  消"  HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="Black"/>
+            </Border>-->
+            <Button Style="{StaticResource btnMessage}" Background="#3B8AD4" Height="30"
+                    Width="80" Canvas.Bottom="10" Canvas.Right="125" Content="确  定" BorderBrush="#0A83F2" 
+                    BorderThickness="1" Click="BtnYes_Click"></Button>
+            <Button Style="{StaticResource btnMessage}" Background="#F9F9F9" Height="30"
+                    Width="80" Canvas.Bottom="10" Canvas.Right="30" Content="取  消" BorderBrush="#C4C4C4" 
+                    BorderThickness="1" Foreground="Black" Click="BtnNo_Click"></Button>
+        </Canvas>
+    </Border>
+</Window>

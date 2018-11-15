@@ -1,0 +1,193 @@
+﻿<Window x:Class="JhWebBrowser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:JhWebBrowser"
+        Title="Player" Height="768" Width="1024"
+        AllowsTransparency="True" WindowStyle="None" Background="Transparent"
+        Template="{StaticResource MainWindowTemplate}" WindowStartupLocation="CenterScreen"
+        ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/Background/MainBackground.jpg"/>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="72"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="120"/>
+                <RowDefinition/>
+                <RowDefinition Height="120"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="img" Style="{StaticResource btUserImg}" Margin="0,0,0,20" Click="img_Click">
+                <Button.Content>
+                    <Image Source="Images/Background/user.JPG"/>
+                </Button.Content>
+            </Button>
+            <StackPanel Grid.Row="1">
+                <!--首页-->
+                <Button x:Name="btnHome" Style="{StaticResource btnMenu}" Click="btnHome_Click" ToolTip="主  页">
+                    <Button.Content>
+                        <Canvas VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Path Data="M512 128c0 0-263.936 227.84-411.435 351.232-8.661 7.851-15.232
+                                  19.285-15.232 32.768 0 23.595 19.072
+                                  42.667 42.667 42.667h85.333v298.667c0 
+                                  23.595 19.072 42.667 42.667 42.667h128c23.595
+                                  0 42.667-19.115 42.667-42.667v-170.667h170.667v170.667c0
+                                  23.552 19.072 42.667 42.667 42.667h128c23.595 
+                                  0 42.667-19.072 42.667-42.667v-298.667h85.333c23.595 
+                                  0 42.667-19.072 42.667-42.667 
+                                  0-13.483-6.571-24.917-16.341-32.768-146.475-123.392-410.325-351.232-410.325-351.232z"
+                      Height="30" Stretch="Fill" Canvas.Top="-16" Canvas.Left="-16" Width="30" Fill="White"/>
+                        </Canvas>
+                    </Button.Content>
+                </Button>
+                <!--浏览网站-->
+                <Button x:Name="btnBrowser" Style="{StaticResource btnMenu}" Click="btnBrowser_Click" ToolTip="浏览器">
+                    <Button.Content>
+                        <Canvas VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Path Data="M258.278 446.542l-146.532-253.802c93.818-117.464 238.234-192.74 400.254-192.74
+                                  187.432 0 351.31 100.736 440.532 
+                                  251h-417.77c-7.504-0.65-15.092-1-22.762-1-121.874
+                                  0-224.578 83.644-253.722 
+                                  196.542zM695.306 325h293.46c22.74 57.93 35.234
+                                  121.004 35.234 187 0 280.826-226.1 508.804-506.186 
+                                  511.926l209.394-362.678c29.48-42.378 46.792-93.826 
+                                  46.792-149.248 0-73.17-30.164-139.42-78.694-187zM326 
+                                  512c0-102.56 83.44-186 186-186s186 83.44 186 186c0
+                                  102.56-83.44 186-186 186s-186-83.44-186-186zM582.182 
+                                  764.442l-146.578 253.878c-246.532-36.884-435.604-249.516-435.604-506.32
+                                  0-91.218 23.884-176.846 65.696-251.024l209.030 
+                                  362.054c41.868 89.112 132.476 150.97 237.274 
+                                  150.97 24.3 0 47.836-3.34 70.182-9.558z"
+                      Height="30" Stretch="Fill" Canvas.Top="-16" Canvas.Left="-16" Width="30" Fill="White"/>
+                        </Canvas>
+                    </Button.Content>
+                </Button>
+                <!--播放器-->
+                <Button x:Name="btnMedia" Style="{StaticResource btnMenu}" Click="btnMedia_Click" ToolTip="播放器">
+                    <Button.Content>
+                        <Canvas VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Path Data="M981.188
+                                  160.108c-143.632-20.65-302.332-32.108-469.186-32.108-166.86
+                                  0-325.556 11.458-469.194 32.108-27.53 107.726-42.808
+                                  226.75-42.808 351.892 0 125.14 15.278 244.166 42.808
+                                  351.89 143.638 20.652 302.336 32.11 469.194
+                                  32.11 166.854 0 325.552-11.458 469.186-32.11
+                                  27.532-107.724 42.812-226.75 42.812-351.89
+                                  0-125.142-15.28-244.166-42.812-351.892zM384.002
+                                  704v-384l320 192-320 192z"
+                      Height="30" Stretch="Fill" Canvas.Top="-16" Canvas.Left="-16" Width="30" Fill="White"/>
+                        </Canvas>
+                    </Button.Content>
+                </Button>
+                <!--iphone-->
+                <Button x:Name="btnSina" Style="{StaticResource btnMenu}" ToolTip="微  博" Click="btnSina_Cilck">
+                    <Button.Content>
+                        <Canvas VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Path Data="M385.714 733.714q12-19.429 
+                                  6.286-39.429t-25.714-28.571q-19.429-8-41.714-0.571t-34.286 26.286q-12.571 19.429-7.429
+                                  39.143t24.571 28.857 42.571 1.429 
+                                  35.714-27.143zM439.429 664.571q4.571-7.429 2-15.143t-10-10.571q-8-2.857-16.286
+                                  0.286t-12.286 10.571q-9.714 17.714 7.429 25.714 8 2.857 16.571-0.286t12.571-10.571zM538.857
+                                  725.714q-25.714 58.286-90.286 85.714t-128 6.857q-61.143-19.429-84.286-72.286t3.714-107.143q26.857-53.143
+                                  86.571-79.429t120.286-10.857q63.429 16.571 90.571 68.286t1.429 
+                                  108.857zM717.143 634.286q-5.143-54.857-50.857-97.143t-119.143-62.286-156.857-12q-127.429
+                                  13.143-211.143 80.857t-75.714 151.143q5.143 54.857 50.857 97.143t119.143 62.286 156.857
+                                  12q127.429-13.143 211.143-80.857t75.714-151.143zM893.143 636.571q0 38.857-21.143 79.714t-62.286
+                                  78.286-96.286 67.143-129.143 47.429-154.571 17.714-157.143-19.143-137.429-53.143-98-86.286-37.143-114q0-65.714 39.714-140t112.857-147.429q96.571-96.571 195.143-134.857t140.857 4q37.143 36.571 11.429 119.429-2.286 8-0.571 11.429t5.714 4 8.286-0.286 7.714-2l3.429-1.143q79.429-33.714 140.571-33.714t87.429 34.857q25.714 36 0 101.714-1.143 7.429-2.571 11.429t2.571 7.143 6.857 4.286 9.714 3.429q32.571 10.286 58.857 26.857t45.714 46.571 19.429 66.571zM850.857 280q24 26.857 31.143 62t-3.714 67.143q-4.571 13.143-16.857 19.429t-25.429 2.286q-13.143-4.571-19.429-16.857t-2.286-25.429q11.429-36-13.714-63.429t-61.143-20q-13.714 2.857-25.714-4.571t-14.286-21.143q-2.857-13.714 4.571-25.429t21.143-14.571q34.286-7.429 68 3.143t57.714 37.429zM954.286 186.857q49.714 54.857 64.286 127.143t-7.714 138q-5.143 15.429-19.429 22.857t-29.714 2.286-22.857-19.429-2.857-29.714q16-46.857 5.714-98.286t-45.714-90.286q-35.429-39.429-84.571-54.571t-98.857-4.857q-16 3.429-29.714-5.429t-17.143-24.857 5.429-29.429 24.857-16.857q70.286-14.857 
+                                  139.429 6.571t118.857 76.857z"
+                      Height="30" Stretch="Fill" Canvas.Top="-16" Canvas.Left="-16" Width="30" Fill="White"/>
+                        </Canvas>
+                    </Button.Content>
+                </Button>
+                <!--未知好看-->
+                <Button x:Name="btnMusic" Style="{StaticResource btnMenu}" ToolTip="QQ音乐" Click="btnMusic_Click">
+                    <Button.Content>
+                        <Canvas VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Path Data="M832
+                                  896c-106.016
+                                  0-192-71.616-192-160s85.984-160
+                                  192-160c22.56 0 43.872 
+                                  3.84 64 9.824v-297.824l-512
+                                  128v480h-3.872c-17.792 73.024-95.264
+                                  128-188.128 128-106.016 0-192-71.616-192-160s85.984-160
+                                  192-160c22.56 0 43.872 3.84 64 9.824v-553.824l640-160h128v736c0 88.384-85.984
+                                  160-192 160z"
+                      Height="30" Stretch="Fill" Canvas.Top="-16" Canvas.Left="-16" Width="30" Fill="White"/>
+                        </Canvas>
+                    </Button.Content>
+                </Button>
+                <!--未知好看-->
+                <Button Style="{StaticResource btnMenu}">
+                    <Button.Content>
+                        <Canvas VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Path Data="M928 0h-832c-52.8 0-96 43.2-96 96v832c0
+                                  52.8 43.2 96 96 96h832c52.8 0 96-43.2 
+                                  96-96v-832c0-52.8-43.2-96-96-96zM822.4 
+                                  768.8l-348.4 114c-79.6 26-87.6 21.8-123.6-89.6l-88-272.6c-21-64.6-85-238.6-95.8-272-20-62-20-65.4 
+                                  97-103.4 91.6-30 95.4-29 128.6 74.4 
+                                  26.8 83.2 44 150.4 71.6 235.4l75 232 
+                                  239.6-78.4c47.2-15.6 63-14.8 76.4 43.4l9.6 
+                                  44c11.2 51-14.6 64-42 72.8z"
+                      Height="30" Stretch="Fill" Canvas.Top="-16" Canvas.Left="-16" Width="30" Fill="White"/>
+                        </Canvas>
+                    </Button.Content>
+                </Button>
+                <!--邮箱-->
+                <Button x:Name="btnMail" Style="{StaticResource btnMenu}" ToolTip="邮  箱" Click="btnMail_Click">
+                    <Button.Content>
+                        <Canvas VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Path Data="M512 0c-282.8 0-512
+                                  229.2-512 512s229.2 512 512 512 
+                                  512-229.2 512-512-229.2-512-512-512zM763.6 351l-84
+                                  395.8c-5.8 28.2-22.8 34.8-46.4 21.8l-128-94.6-61.4 
+                                  59.8c-7.2 7-12.8 12.8-25.6 12.8-16.6 
+                                  0-13.8-6.2-19.4-22l-43.6-143.2-126.6-39.4c-27.4-8.4-27.6-27.2 
+                                  6.2-40.6l493.2-190.4c22.4-10.2 44.2 5.4 35.6 40z"
+                      Height="30" Stretch="Fill" Canvas.Top="-16" Canvas.Left="-16" Width="30" Fill="White"/>
+                        </Canvas>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            <Grid Grid.Row="2">
+                <!--<Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>-->
+                <Button  x:Name="btnSetUp"  VerticalAlignment="Bottom" Style="{StaticResource btnMenu}" ToolTip="设  置" Click="btnSetUp_Click">
+                    <Button.Content>
+                        <Canvas VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <Path Data="M933.79 610.25c-53.726-93.054-21.416-212.304 
+                                  72.152-266.488l-100.626-174.292c-28.75
+                                  16.854-62.176 26.518-97.846 26.518-107.536
+                                  0-194.708-87.746-194.708-195.99h-201.258c0.266
+                                  33.41-8.074 67.282-25.958 98.252-53.724 93.056-173.156 
+                                  124.702-266.862 70.758l-100.624 174.292c28.97 16.472 54.050
+                                  40.588 71.886 71.478 53.638 92.908 21.512 211.92-71.708 266.224l100.626
+                                  174.292c28.65-16.696 61.916-26.254 97.4-26.254 107.196 0 194.144 87.192
+                                  194.7 194.958h201.254c-0.086-33.074 8.272-66.57
+                                  25.966-97.218 53.636-92.906 
+                                  172.776-124.594 
+                                  266.414-71.012l100.626-174.29c-28.78-16.466-53.692-40.498-71.434-71.228zM512
+                                  719.332c-114.508 0-207.336-92.824-207.336-207.334 
+                                  0-114.508 92.826-207.334 207.336-207.334 
+                                  114.508 0 207.332 92.826 207.332 207.334-0.002 114.51-92.824
+                                  207.334-207.332 207.334z"
+                      Height="30" Stretch="Fill" Canvas.Top="-16" Canvas.Left="-16" Width="30" Fill="White"/>
+                        </Canvas>
+                    </Button.Content>
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid  Grid.Column="1">
+            <!--Source="https://passport.cnblogs.com/user/signin?ReturnUrl=http%3A%2F%2Fwww.cnblogs.com%2F"/>-->
+            <!--Source="http://www.cnblogs.com/yanjinhua/p/5643459.html"/>-->
+            <local:TransparentWebBrowser  x:Name="wbInput" 
+                                          TargetElement="{Binding RelativeSource={RelativeSource AncestorType={x:Type FrameworkElement}}}" />
+                                          
+        </Grid>
+    </Grid>
+</Window>
